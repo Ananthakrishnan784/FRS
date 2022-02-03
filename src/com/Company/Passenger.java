@@ -3,26 +3,62 @@ package com.Company;
 public class Passenger {
 
     private int id;
-    private String address;
+    private static int idCounter=0;
 
-    public Passenger(int id, String address) {
+    private static class Address {
+        String street;
+        String city;
+        String state;
+        public Address(String street, String city, String State) {
+            this.street=street;
+            this.city=city;
+            this.state=state;
+        }
+    }
+    private Address address;
 
-        this.id = id;
-        this.address = address;
+    private static class Contact {
+        String name;
+        String phone;
+        String email;
+
+        public Contact(String name, String phone, String email) {
+            this.name = name;
+            this.phone = phone;
+            this.email = email;
+        }
+    }
+    private Contact contact;
+
+
+
+    public Passenger(String addressStreet, String addressCity, String addressState, String contactName, String contactPhone,String contactEmail) {
+
+        this.id = ++idCounter;
+        this.address = new Address(addressStreet, addressCity, addressState);
+        this.contact = new Contact(contactName, contactPhone, contactEmail);
     }
 
+
+
     public int getId() {
-        return id;
+        return idCounter;
     }
     public void setId(int id)
     {
         this.id=id;
     }
-     public String getAddress() {
-        return address;
+    public String getAddress() {
+        return address.street + "," + address.city + ", " + address.state;
     }
-    public void setAddress(String address) {
-        this.address=address;
+
+    public String getContact(){
+        return contact.name+", "+contact.phone+", "+contact.email;
+    }
+
+    public int getPassengerCount() {
+
+        return idCounter;
     }
 
 

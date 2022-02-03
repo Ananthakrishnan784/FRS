@@ -1,16 +1,21 @@
 package com.Company;
 
-public class Ticket {
-    public String pnr;
-    public String from;
-     public String to;
-     public Flight flight;
-     public String departureDateTime;
-     public String arrivalDateTime;
-     public Passenger passenger;
-     public String seatNumber;
-     public float price;
-     public boolean cancelled;
+abstract class Ticket {
+    private String pnr;
+    private String from;
+     private String to;
+     private Flight flight;
+     private String departureDateTime;
+     private String arrivalDateTime;
+     private Passenger passenger;
+     private String seatNumber;
+     private float price;
+     private boolean cancelled;
+
+     public Ticket() {}
+    public Ticket(String pnr){
+         this.pnr=pnr;
+    }
 
 public Ticket(String pnr, String from, String to, String flight, String departureDateTime, String arrivalDateTime,
               Passenger passenger, String seatNumber, float price, boolean cancelled) {
@@ -103,6 +108,9 @@ public Ticket(String pnr, String from, String to, String flight, String departur
 
     public void setCancelled(boolean cancelled) {
         this.cancelled = cancelled;
+    }
+    public String getPrintTicketDetails() {
+         return pnr;
     }
 }
 

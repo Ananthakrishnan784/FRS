@@ -37,8 +37,19 @@ public class Flight {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-
-
+    public int getBookedSeats() {
+        return bookedSeats;
     }
+
+    public void setBookedSeats(int bookedSeats) {
+        this.bookedSeats = bookedSeats;
+    }
+    public String getFlightDetails() {
+        return flightNumber+", "+ airline +", "+ capacity+","+bookedSeats;
+    }
+    public boolean checkavailability() {
+        return bookedSeats<capacity;
+    }
+}
 
 
